@@ -7,6 +7,7 @@ public class Deck {
 
     public Deck() {
         cards = new Card[52];
+        initialize();
     }
 
     public int cardsRemaining() {
