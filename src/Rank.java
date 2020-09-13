@@ -1,15 +1,15 @@
 public enum Rank {
-        KING,
-        QUEEN,
-        KNIGHT,
-        TEN,
-        NINE,
-        EIGHT,
-        SEVEN,
-        SIX,
-        FIVE,
-        FOUR,
-        THREE,
+        ACE,
         TWO,
-        ACE
+        THREE,
+        FOUR,
+        FIVE,
+        SIX,
+        SEVEN,
+        EIGHT,
+        NINE,
+        TEN,
+        KNIGHT,
+        QUEEN,
+        KING
     }

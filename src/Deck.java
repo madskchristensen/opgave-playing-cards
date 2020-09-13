@@ -3,11 +3,15 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Deck {
-    Card cards[];
+    private Card cards[];
 
     public Deck() {
         cards = new Card[52];
         initialize();
+    }
+
+    public Card[] getCards() {
+        return cards;
     }
 
     public int cardsRemaining() {

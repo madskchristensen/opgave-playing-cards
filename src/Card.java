@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Card {
+public class Card implements Comparable<Card> {
     Rank rank;
     Color color;
 
@@ -26,5 +26,18 @@ public class Card {
     @Override
     public int hashCode() {
         return Objects.hash(rank, color);
+    }
+
+    public int compareTo(Card other) {
+        if(this.color.compareTo(other.color) != 0) {
+            return this.color.compareTo(other.color);
+        }
+        else if(this.rank.compareTo(other.rank) != 0) {
+            return this.rank.compareTo(other.rank);
+
+            // kort er ens
+        } else {
+            return 0;
+        }
     }
 }
