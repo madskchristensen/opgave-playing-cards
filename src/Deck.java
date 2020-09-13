@@ -92,6 +92,7 @@ public class Deck implements Iterable<Card> {
         return Arrays.hashCode(cards);
     }
 
+    // https://stackoverflow.com/questions/21512250/how-can-i-make-my-class-iterable-so-i-can-use-foreach-syntax
     @Override
     public Iterator<Card> iterator() {
         return new Iterator<Card>() {
