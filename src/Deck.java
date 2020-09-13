@@ -1,8 +1,9 @@
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Random;
 
-public class Deck {
+public class Deck implements Iterable<Card> {
     private Card cards[];
 
     public Deck() {
@@ -29,6 +30,23 @@ public class Deck {
     }
 
     public void initialize() {
+        // generateRandomDeck();
+        generateNormalDeck();
+        shuffle();
+    }
+
+    public void generateNormalDeck() {
+        int i = 0;
+
+        for(Color color : Color.values()) {
+            for(Rank rank : Rank.values()) {
+                cards[i] = new Card(rank, color);
+                i++;
+            }
+        }
+    }
+
+    public void generateRandomDeck() {
         final Rank[] RANKVALUES = Rank.values();
         final Color[] COLORVALUES = Color.values();
         Random random = new Random();
@@ -72,5 +90,33 @@ public class Deck {
     @Override
     public int hashCode() {
         return Arrays.hashCode(cards);
+    }
+
+    @Override
+    public Iterator<Card> iterator() {
+        return new Iterator<Card>() {
+
+            int current = 0;
+
+            @Override
+            public boolean hasNext() {
+                if (cardsRemaining() == 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            @Override
+            public Card next() {
+                current++;
+
+                if(hasNext()) {
+                    return cards[current - 1];
+                }
+
+                return null;
+            }
+        };
     }
 }
