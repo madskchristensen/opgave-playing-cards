@@ -32,7 +32,7 @@ public class Deck implements Iterable<Card> {
     public void initialize() {
         // generateRandomDeck();
         generateNormalDeck();
-        shuffle();
+        // shuffle();
     }
 
     public void generateNormalDeck() {
@@ -96,11 +96,11 @@ public class Deck implements Iterable<Card> {
     public Iterator<Card> iterator() {
         return new Iterator<Card>() {
 
-            int current = 0;
+            int current = -1;
 
             @Override
             public boolean hasNext() {
-                if (cardsRemaining() == 0) {
+                if(cardsRemaining() <= 0 || current >= 51) {
                     return false;
                 } else {
                     return true;
@@ -109,10 +109,9 @@ public class Deck implements Iterable<Card> {
 
             @Override
             public Card next() {
-                current++;
-
                 if(hasNext()) {
-                    return cards[current - 1];
+                    current++;
+                    return cards[current];
                 }
 
                 return null;

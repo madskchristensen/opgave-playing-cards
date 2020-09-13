@@ -3,9 +3,13 @@ public class Main {
     public static void main(String[] args) {
         Deck deck = new Deck();
 
+        /*
         System.out.println(deck);
         testCompareTo(deck);
         testDraw(deck, 52);
+         */
+
+        testIterator(deck);
     }
 
     public static void testDraw(Deck deck, int amountOfDraws) {
@@ -28,6 +32,15 @@ public class Main {
             System.out.println("Card 2 = " + card2);
 
             System.out.println("Resultat = " + card.compareTo(card2) + "\n");
+        }
+    }
+
+    public static void testIterator(Deck deck) {
+        int i = 0;
+
+        for(Card card : deck) {
+            System.out.println("Card " + "[" + i + "] " + card);
+            i++;
         }
     }
 }
